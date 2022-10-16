@@ -15,7 +15,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: 
+          title: const Text('Sex Position Generator'),
         ),
       ),
     );
