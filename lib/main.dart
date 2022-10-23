@@ -20,7 +20,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
   late BannerAd _bottomBannerAd;
   var _isBottomBannerAdLoaded = false;
 
@@ -45,7 +44,7 @@ class _MyAppState extends State<MyApp> {
     super.initState();
     _createBottomBannerAd();
   }
-  
+
   @override
   void dispose() {
     super.dispose();
@@ -67,11 +66,30 @@ class _MyAppState extends State<MyApp> {
     'Doggy',
     'Monster Mash',
     'Alone and Sad',
-    'Twisting Tower'
+    'Twisting Tower',
+    'Pegging',
+    'Double pegging',
+    'Man on man',
+    'Missionary',
+    'Blowy from the back',
+    'Cowgirl'
+  ];
+  final SexpicsArry = [
+    'assets/0.jpg',
+    'assets/1.jpg',
+    'assets/2.jpg',
+    'assets/3.jpg',
+    'assets/4.jpg',
+    'assets/5.jpg',
+    'assets/1.png',
+    'assets/2.png',
+    'assets/3.png',
+    'assets/4.png',
   ];
 
   var buttonTextArrayIndex = 0;
   var _buttonText = 'Poke Me';
+  String _sexImage = 'assets/zero.png';
   void changeButtonText() {
     setState(() {
       buttonTextArrayIndex < buttonTextArray.length - 1
@@ -98,19 +116,24 @@ class _MyAppState extends State<MyApp> {
       lastIndex = randomIndex;
 
       positionText = sexPostions[randomIndex];
+      _sexImage = SexpicsArry[randomIndex];
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData.dark(),
       home: Scaffold(
-        bottomNavigationBar: _isBottomBannerAdLoaded ? Container(
-          height: _bottomBannerAd.size.height.toDouble(),
-          width: _bottomBannerAd.size.width.toDouble(),
-          child: AdWidget(ad: _bottomBannerAd)) : null,
+        bottomNavigationBar: _isBottomBannerAdLoaded
+            ? Container(
+                height: _bottomBannerAd.size.height.toDouble(),
+                width: _bottomBannerAd.size.width.toDouble(),
+                child: AdWidget(ad: _bottomBannerAd))
+            : null,
         appBar: AppBar(
-          backgroundColor: Color.fromARGB(255, 209, 14, 0),
+          backgroundColor: const Color.fromARGB(255, 209, 14, 0),
           title: const Text(
             'Sex Position Generator',
             style: TextStyle(
@@ -119,9 +142,29 @@ class _MyAppState extends State<MyApp> {
                 fontSize: 25,
                 fontStyle: FontStyle.italic),
           ),
+          centerTitle: true,
+          flexibleSpace: Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Colors.red, Colors.black12],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              ),
+            ),
+          ),
         ),
         body: Column(
           children: [
+            Center(
+              child: Image(
+                image: AssetImage(
+                  _sexImage,
+                ),
+                height: 300,
+                width: 250,
+                fit: BoxFit.cover,
+              ),
+            ),
             Center(
               child: Text(
                 positionText,
