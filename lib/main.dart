@@ -1,3 +1,4 @@
+import 'package:flutter/rendering.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
@@ -153,7 +154,9 @@ class _MyAppState extends State<MyApp> {
             ),
           ),
         ),
-        body: Column(
+        body: Flex(
+          direction: Axis.vertical,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Center(
               child: Image(
