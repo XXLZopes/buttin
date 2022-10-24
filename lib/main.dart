@@ -75,18 +75,6 @@ class _MyAppState extends State<MyApp> {
     'Blowy from the back',
     'Cowgirl'
   ];
-  final SexpicsArry = [
-    'assets/0.jpg',
-    'assets/1.jpg',
-    'assets/2.jpg',
-    'assets/3.jpg',
-    'assets/4.jpg',
-    'assets/5.jpg',
-    'assets/1.png',
-    'assets/2.png',
-    'assets/3.png',
-    'assets/4.png',
-  ];
 
   var buttonTextArrayIndex = 0;
   var _buttonText = 'Poke Me';
@@ -117,7 +105,8 @@ class _MyAppState extends State<MyApp> {
       lastIndex = randomIndex;
 
       positionText = sexPostions[randomIndex];
-      _sexImage = SexpicsArry[randomIndex];
+      String image_name = positionText.replaceAll(' ', '_').toLowerCase();
+      _sexImage = "assets/$image_name.webp";
     });
   }
 

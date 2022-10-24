@@ -5,12 +5,12 @@
 	<key>GADApplicationIdentifier</key>
 	<string>ca-app-pub-9568662024987593~5536066662</string>
 	<key>SKAdNetworkItems</key>
-  		<!-- <array>
+  		<array>
     		<dict>
       			<key>SKAdNetworkIdentifier</key>
       			<string>cstr6suwn9.skadnetwork</string>
     		</dict>
-  		</array> -->
+  		</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
