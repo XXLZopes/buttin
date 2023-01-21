@@ -67,7 +67,10 @@ class _MyAppState extends State<MyApp> {
     'Doggy',
     'Cowgirl',
     'Blowy',
-    'missionary',
+    'Missionary',
+    'Saddle',
+    'Standing69',
+    'ThreeLeggedPuppy'
   ];
 
   var buttonTextArrayIndex = 0;
