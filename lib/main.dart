@@ -65,20 +65,14 @@ class _MyAppState extends State<MyApp> {
   ];
   final sexPostions = [
     'Doggy',
-    'Monster Mash',
-    'Alone and Sad',
-    'Twisting Tower',
-    'Pegging',
-    'Double pegging',
-    'Man on man',
-    'Missionary',
-    'Blowy from the back',
-    'Cowgirl'
+    'Cowgirl',
+    'Blowy',
+    'missionary',
   ];
 
   var buttonTextArrayIndex = 0;
   var _buttonText = 'Poke Me';
-  String _sexImage = 'assets/zero.png';
+  String _sexImage = 'assets/missionary.webp';
   void changeButtonText() {
     setState(() {
       buttonTextArrayIndex < buttonTextArray.length - 1
