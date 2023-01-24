@@ -75,7 +75,7 @@ class _MyAppState extends State<MyApp> {
 
   var buttonTextArrayIndex = 0;
   var _buttonText = 'Poke Me';
-  String _sexImage = 'assets/missionary.webp';
+  String _sexImage = 'assets/main.webp';
   void changeButtonText() {
     setState(() {
       buttonTextArrayIndex < buttonTextArray.length - 1
