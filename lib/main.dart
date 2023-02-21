@@ -65,12 +65,19 @@ class _MyAppState extends State<MyApp> {
   ];
   final sexPostions = [
     'Doggy',
+    'Cuddling',
+    'Kangaroo',
+    'Mermaid',
+    'Pegging',
+    'Planking',
+    'Reversecowgirl',
+    'Anal',
     'Cowgirl',
     'Blowy',
-    'Missionary',
     'Saddle',
     'Standing69',
-    'ThreeLeggedPuppy'
+    'ThreeLeggedPuppy',
+    'Blowyfromtheback'
   ];
 
   var buttonTextArrayIndex = 0;
