@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/rendering.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:flutter/material.dart';
@@ -52,37 +53,63 @@ class _MyAppState extends State<MyApp> {
     _bottomBannerAd.dispose();
   }
 
+  final Badgeimge = [
+    'fire_icon',
+    'funny_icon',
+    'heart_icon',
+    'laugh_icon',
+    'learn_icon',
+  ];
+
   final buttonSize = 170.0;
   final buttonTextArray = [
-    'Poke Me',
-    'Stop I Like It',
-    'Ooo That Tickled',
-    'Harder',
-    'Yas',
-    'Yass',
-    'YASSS',
-    'I Called You An Uber',
+    'You got this',
+    'Champ!',
+    'Now go conquer the world',
+    'You are a superhero in training',
+    'Put on your cape and fly through your tasks today.',
+    'You can do it!',
+    'Don nott give up, you are too awesome to quit!',
+    'You are a ninja of productivity',
+    'You are a rockstar',
+    'You are a wizard of efficiency',
+    'You are a puzzle master',
+    'Keep calm and unicorn on',
   ];
-  final sexPostions = [
-    'Doggy',
-    'Cuddling',
-    'Kangaroo',
-    'Mermaid',
-    'Pegging',
-    'Planking',
-    'Reversecowgirl',
-    'Anal',
-    'Cowgirl',
-    'Blowy',
-    'Saddle',
-    'Standing69',
-    'ThreeLeggedPuppy',
-    'Blowyfromtheback'
+  final Adventures = [
+    'Going to the laundromat',
+    'Obtaining a drivers license',
+    'Any trip to a govt office',
+    'Ask out the some you care about',
+    'Learning a new language',
+    'Returning a library book',
+    'Go buy a cup of coffee',
+    'Getting over social anxiety haha',
+    'Spend the day making something',
+    'Spend the day volunteering',
+    'Choose a new skill and learn more about it',
+    'Go on a hike to a new place',
+    'Write a short story',
+    'Take as many pictures as you can today',
+    'Choose a type of food you have never tried before and try it.',
+    'Do 10 kind deeds throughout the day',
+    'Get a job at a carpet store',
+    'Help carry a strangers groceries ',
+    'Get a cat out of a tree',
+    'Fill your palm with whipped cream and scare someone',
+    'Annoy a family member ',
+    'Quote as many funny clips as you can in one minute ',
+    'Do some gardening ',
+    'Catch a piece of cheese with your face',
+    'Do your taxes',
+    'Ask a person on a date ',
+    'Sell everything you own and become a pirate ',
+    'Throw a croissant like a boomerang and catch it on the way back ',
   ];
 
   var buttonTextArrayIndex = 0;
   var _buttonText = 'Poke Me';
-  String _sexImage = 'assets/main.webp';
+  String Badge_adv = 'assets/main.webp';
   void changeButtonText() {
     setState(() {
       buttonTextArrayIndex < buttonTextArray.length - 1
@@ -94,23 +121,35 @@ class _MyAppState extends State<MyApp> {
   }
 
   Random rnd = Random();
-  int randomIndex = 0;
+  int Badge_randomIndex = 0;
+  int Text_randomIndex = 0;
+
   int lastIndex = 0;
+  int text_lastIndex = 0;
   String positionText = "";
 
   void changeIndex() {
     setState(() {
-      int max = sexPostions.length;
+      int bmax = Badgeimge.length;
+      int amax = Adventures.length;
 
-      randomIndex = rnd.nextInt(max);
-      while (randomIndex == lastIndex) {
-        randomIndex = rnd.nextInt(max);
+      Badge_randomIndex = rnd.nextInt(bmax);
+      Text_randomIndex = rnd.nextInt(amax);
+
+      while (Badge_randomIndex == lastIndex) {
+        Badge_randomIndex = rnd.nextInt(bmax);
       }
-      lastIndex = randomIndex;
+      lastIndex = Badge_randomIndex;
 
-      positionText = sexPostions[randomIndex];
-      String image_name = positionText.replaceAll(' ', '_').toLowerCase();
-      _sexImage = "assets/$image_name.webp";
+      while (Text_randomIndex == text_lastIndex) {
+        Text_randomIndex = rnd.nextInt(bmax);
+      }
+      text_lastIndex = Text_randomIndex;
+
+      positionText = Adventures[Text_randomIndex];
+      String bagetext = Badgeimge[Badge_randomIndex];
+      String image_name = bagetext.replaceAll(' ', '_').toLowerCase();
+      Badge_adv = "assets/$bagetext.webp";
     });
   }
 
@@ -127,9 +166,9 @@ class _MyAppState extends State<MyApp> {
                 child: AdWidget(ad: _bottomBannerAd))
             : null,
         appBar: AppBar(
-          backgroundColor: const Color.fromARGB(255, 209, 14, 0),
+          backgroundColor: Color.fromARGB(255, 0, 122, 209),
           title: const Text(
-            'Sex Position Generator',
+            'Side Quest',
             style: TextStyle(
                 fontFamily: 'Georgia',
                 fontWeight: FontWeight.bold,
@@ -140,7 +179,7 @@ class _MyAppState extends State<MyApp> {
           flexibleSpace: Container(
             decoration: const BoxDecoration(
               gradient: LinearGradient(
-                colors: [Colors.red, Colors.black12],
+                colors: [Colors.blue, Colors.black12],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
               ),
@@ -152,20 +191,20 @@ class _MyAppState extends State<MyApp> {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Center(
-              child: Image(
-                image: AssetImage(
-                  _sexImage,
-                ),
-                height: 300,
-                width: 250,
-                fit: BoxFit.cover,
+              child: Text(
+                positionText,
+                style: const TextStyle(fontSize: 30),
+                textAlign: TextAlign.center,
               ),
             ),
             Center(
-              child: Text(
-                positionText,
-                style:
-                    const TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+              child: Image(
+                image: AssetImage(
+                  Badge_adv,
+                ),
+                height: 250,
+                width: 250,
+                fit: BoxFit.cover,
               ),
             ),
             Center(
